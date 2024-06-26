@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 class Node
@@ -75,6 +74,12 @@ void del_at_pos(Node * head,int pos)
 	tmp->next=tmp->next->next;
 	delete x;
 }
+void del_head( Node *&head)
+{
+	Node*tmp=head;
+	head=head->next;
+	delete tmp;
+}
 int main()
 {
 	Node*head=NULL;
@@ -85,6 +90,7 @@ int main()
 	cout<<"OPTION 3 : Insert at any position"<<endl;
 	cout<<"OPTION 4 : Insert at head"<<endl;
 	cout<<"OPTION 5 : Delete from a position"<<endl;
+	cout<<"OPTION 6 : Delete Head"<<endl;
 	cout<<"OPTION  : Break"<<endl;
 
 	int op;
@@ -126,6 +132,17 @@ int main()
 		int pos;
 		cin>>pos;
 		del_at_pos(head,pos);
+	}
+	else if(op==6)
+	{
+		if(head==NULL)
+		{
+		   cout<<"can't delete head"<<endl;
+		}
+		else
+		{
+			del_head(head);
+		}
 	}
 	else break;
 	}
